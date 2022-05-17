@@ -1,5 +1,5 @@
 class Animal:
-    pass
+    print('Hello')
 
 
 class Cat:
