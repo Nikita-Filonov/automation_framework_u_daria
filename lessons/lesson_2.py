@@ -1,10 +1,14 @@
+"""
+git pull origin main
+"""
+
+
 class Animal:
-    print('Hello')
+    voice = 'some'
+
+    def __init__(self, name):
+        self.animal_name = name
 
 
-class Cat:
-    pass
-
-
-class Dog:
-    pass
+animal = Animal('Cat')
+print(animal.animal_name)
