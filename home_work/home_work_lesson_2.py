@@ -1,3 +1,9 @@
+"""
+На месте элипсоидов ``...`` нужно написать свою реализацию.
+Методы классов должны выводить значения, как указано ниже
+"""
+
+
 class Car:
     doors = 2
     wheels = 4
@@ -11,12 +17,12 @@ class Car:
 
 class BMW(Car):
     def check_oil(self, oil: str):
-        pass
+        ...  # тут твоя реализация
 
 
 class Audi(Car):
     def check_speed(self, speed: str):
-        pass
+        ...  # тут твоя реализация
 
 
 bmw_x3 = BMW()
