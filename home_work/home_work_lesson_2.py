@@ -9,20 +9,25 @@ class Car:
     wheels = 4
 
     def number_of_wheels(self):
-        ...  # тут твоя реализация
+        return self.wheels  # тут твоя реализация
 
     def number_of_doors(self):
-        ...  # тут твоя реализация
+        return self.doors  # тут твоя реализация
 
 
 class BMW(Car):
+    doors = 3
+
     def check_oil(self, oil: str):
-        ...  # тут твоя реализация
+        return f'The oil is about {oil}'
 
 
 class Audi(Car):
+    doors = 4
+    wheels = 5
+
     def check_speed(self, speed: str):
-        ...  # тут твоя реализация
+        return f'This speed is about {speed}'
 
 
 bmw_x3 = BMW()
