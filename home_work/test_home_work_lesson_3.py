@@ -29,10 +29,8 @@ def multiply(a: int, b: int):
     return a * b
 
 
-
-
 def test_add_1():
-    add(1, 2) > 2
+    assert add(1, 2) > 2, 'Some message'
 
 
 def test_add_2():
@@ -60,7 +58,7 @@ def test_minus_2():
 
 
 def test_minus_3():
-    minus('2', '-3') == 1
+    assert minus('2', '-3') == 1, 'Some error happended'
 
 
 def test_minus_4():
@@ -89,6 +87,3 @@ def test_multiply_4():
 
 def test_multiply_5():
     multiply(4, '3') == '444'
-
-
-    
