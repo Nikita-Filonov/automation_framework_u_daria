@@ -29,17 +29,66 @@ def multiply(a: int, b: int):
     return a * b
 
 
-def test_1():
-    ...
 
 
-def test_2():
-    ...
+def test_add_1():
+    add(1, 2) > 2
 
 
-def test_3():
-    ...
+def test_add_2():
+    add(2, -3) == -1
 
 
-def test_4():
-    ...
+def test_add_3():
+    add(2, -3) > [2, -3]
+
+
+def test_add_4():
+    add('Hello ', 'world!') == 'Hello world!'
+
+
+def test_add_5():
+    add('2', 3) >= 23
+
+
+def test_minus_1():
+    minus(5, 2) == 3
+
+
+def test_minus_2():
+    minus(2, 3) == -1
+
+
+def test_minus_3():
+    minus('2', '-3') == 1
+
+
+def test_minus_4():
+    minus(5, 6) > [-1]
+
+
+def test_minus_5():
+    minus(5, 6) < 3
+
+
+def test_multiply_1():
+    multiply(2, 3) == 6
+
+
+def test_multiply_2():
+    multiply(2, -3) >= -6
+
+
+def test_multiply_3():
+    multiply(2, 3) <= 10
+
+
+def test_multiply_4():
+    multiply(2, 0) == [0]
+
+
+def test_multiply_5():
+    multiply(4, '3') == '444'
+
+
+    
