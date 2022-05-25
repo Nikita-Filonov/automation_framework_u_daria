@@ -58,7 +58,7 @@ def test_minus_2():
 
 
 def test_minus_3():
-    assert minus('2', '-3') == 1, 'Some error happended'
+    assert minus('2', '-3') == 1, 'Some error happened'
 
 
 def test_minus_4():
