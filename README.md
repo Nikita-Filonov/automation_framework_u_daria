@@ -38,3 +38,9 @@ Adding new dependence
 ```shell
 pip feeze > requirements.txt
 ```
+
+```shell
+git status - показывает статус изменений файлов
+git commit -m "your commit message" - коммитит изменения
+git push - публикует изменения в репозиторий
+```
