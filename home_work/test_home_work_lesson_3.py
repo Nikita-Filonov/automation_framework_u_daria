@@ -15,6 +15,7 @@ add, minus, multiply.
 
 3. Выбрать команду для запуска тестов
 """
+import pytest
 
 
 def add(a: int, b: int):
@@ -58,7 +59,8 @@ def test_minus_2():
 
 
 def test_minus_3():
-    assert minus('2', '-3') == 1, 'Some error happened'
+    with pytest.raises(TypeError):
+        minus('2', '-3')
 
 
 def test_minus_4():
