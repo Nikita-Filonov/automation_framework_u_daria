@@ -29,13 +29,15 @@ class TestMarkers:
     Input: pytest -m "regression and not feature"
     Output: 2 passed, 2 deselected, 4 warnings in 0.06s
     """
+
     @pytest.mark.regression
     def test_regression_mark(self):
         pass
+
     @pytest.mark.smoke
     def test_smoke_mark(self):
         pass
+
     @pytest.mark.feature
     def test_feature_mark(self):
         pass
-

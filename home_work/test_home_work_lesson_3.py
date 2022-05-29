@@ -1,3 +1,6 @@
+import pytest
+
+
 """
 1. Необходимо написать максимальное количество тестовых проверок для функций
 add, minus, multiply.
@@ -38,7 +41,8 @@ def test_add_2():
 
 
 def test_add_3():
-    assert add(2, -3) > [2, -3], 'you cant assert int and list'
+    with pytest.raises(TypeError):
+        add(2, -3) > [2, -3]
 
 
 def test_add_4():
@@ -46,7 +50,8 @@ def test_add_4():
 
 
 def test_add_5():
-    assert add('2', 3) >= 23, 'you can not add int and str'
+    with pytest.raises(TypeError):
+        add('2', 3)
 
 
 def test_minus_1():
@@ -58,11 +63,13 @@ def test_minus_2():
 
 
 def test_minus_3():
-    assert minus('2', '-3') == 1, 'Some error happened'
+    with pytest.raises(TypeError):
+        minus('2', '-3') == 1
 
 
 def test_minus_4():
-    assert minus(5, 6) > [-1], 'you can not compare the different data types'
+    with pytest.raises(TypeError):
+        minus(5, 6) > [-1]
 
 
 def test_minus_5():
