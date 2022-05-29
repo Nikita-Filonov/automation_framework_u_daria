@@ -30,31 +30,31 @@ def multiply(a: int, b: int):
 
 
 def test_add_1():
-    assert add(1, 2) > 2, 'Some message'
+    assert add(1, 2) > 5, '3 is not more than 5'
 
 
 def test_add_2():
-    add(2, -3) == -1
+    assert add(2, -3) == -1, '-1 is correct'
 
 
 def test_add_3():
-    add(2, -3) > [2, -3]
+    assert add(2, -3) > [2, -3], 'you cant assert int and list'
 
 
 def test_add_4():
-    add('Hello ', 'world!') == 'Hello world!'
+    assert add('Hello ', 'world!') == 'Hello world!', 'it is not expected phrase'
 
 
 def test_add_5():
-    add('2', 3) >= 23
+    assert add('2', 3) >= 23, 'you can not add int and str'
 
 
 def test_minus_1():
-    minus(5, 2) == 3
+    assert minus(5, 2) == 3, 'calculating error'
 
 
 def test_minus_2():
-    minus(2, 3) == -1
+    assert minus(2, 3) == -1, 'calculating error'
 
 
 def test_minus_3():
@@ -62,28 +62,28 @@ def test_minus_3():
 
 
 def test_minus_4():
-    minus(5, 6) > [-1]
+    assert minus(5, 6) > [-1], 'you can not compare the different data types'
 
 
 def test_minus_5():
-    minus(5, 6) < 3
+    assert minus(5, 6) < 3, 'calculating error'
 
 
 def test_multiply_1():
-    multiply(2, 3) == 6
+    assert multiply(2, 3) == 6, 'calculating error'
 
 
 def test_multiply_2():
-    multiply(2, -3) >= -6
+    assert multiply(2, -3) >= -6, 'calculating error'
 
 
 def test_multiply_3():
-    multiply(2, 3) <= 10
+    assert multiply(2, 3) <= 10, 'calculating error'
 
 
 def test_multiply_4():
-    multiply(2, 0) == [0]
+    assert multiply(2, 0) == [0], 'you can not compare the different data types'
 
 
 def test_multiply_5():
-    multiply(4, '3') == '444'
+    assert multiply(4, '3') == '444', 'multiply result does not equal expected'

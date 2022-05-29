@@ -40,6 +40,7 @@ pip feeze > requirements.txt
 ```
 
 ```shell
+git add *, ., filename - добавляет изменения к коммиту
 git status - показывает статус изменений файлов
 git commit -m "your commit message" - коммитит изменения
 git push - публикует изменения в репозиторий

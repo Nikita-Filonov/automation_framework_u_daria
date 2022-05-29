@@ -1,3 +1,4 @@
+import pytest
 def test_regression():
     """
     Необходимо добавить параметризацию
@@ -10,8 +11,7 @@ def test_regression():
     """
     ...
 
-
-# @pytest.mark.<your_mark_here>
+@pytest.mark.markers
 class TestMarkers:
     """
     Необходимо расставить маркировки так, чтобы при запуске команд ниже,
@@ -29,15 +29,13 @@ class TestMarkers:
     Input: pytest -m "regression and not feature"
     Output: 2 passed, 2 deselected, 4 warnings in 0.06s
     """
-
-    # @pytest.mark.<your_mark_here>
+    @pytest.mark.regression
     def test_regression_mark(self):
         pass
-
-    # @pytest.mark.<your_mark_here>
+    @pytest.mark.smoke
     def test_smoke_mark(self):
         pass
-
-    # @pytest.mark.<your_mark_here>
+    @pytest.mark.feature
     def test_feature_mark(self):
         pass
+

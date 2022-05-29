@@ -12,16 +12,16 @@ def get_user_by_id(user_id: int):
     raise NotImplementedError(f'Can not found user with id={user_id}')
 
 
-# @pytest.mark.some
+@pytest.mark.some
 def test_some():
     actual_response_body = {'id': 1, 'username': 'some'}
     expected_response_body = {'id': 2, 'username': 'some'}
     assert actual_response_body == expected_response_body
 
 
-# @pytest.mark.some
+@pytest.mark.other
 def test_other():
-    with pytest.raises(NotImplementedError):
+    with pytest.raises(ArithmeticError):
         get_user_by_id(user_id=5)
 
 
@@ -29,7 +29,7 @@ def create_user(user_payload: dict):
     pass
 
 
-# @pytest.mark.smoke
+@pytest.mark.smoke
 @pytest.mark.parametrize(
     'username',
     [
@@ -39,13 +39,13 @@ def create_user(user_payload: dict):
         'stringstringstringstringstringstringstring'
     ]
 )
-def test_user_creation(username):
+def test_user_creation0(username):
     user_data = {'id': 1, 'email': username}
     print(f'Creating user with data {user_data}')
     create_user(user_data)
 
 
-# @pytest.mark.smoke
+@pytest.mark.smoke
 @pytest.mark.parametrize(
     'user_data',
     [
