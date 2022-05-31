@@ -18,6 +18,7 @@ add, minus, multiply.
 
 3. Выбрать команду для запуска тестов
 """
+import pytest
 
 
 def add(a: int, b: int):
