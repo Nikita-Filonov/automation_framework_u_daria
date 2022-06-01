@@ -1,6 +1,7 @@
 import pytest
 
 
+# Тут все хорошо
 @pytest.mark.parametrize('param_1, param_2', [[1, 2], [4, 6], [7, 9], [1, 9]])
 def test_regression(param_1, param_2):
     print(f'Выполняем запрос с параметрами {param_1} и {param_2}')
@@ -15,6 +16,7 @@ def test_regression(param_1, param_2):
     """
 
 
+# Тут все хорошо
 @pytest.mark.parametrize('param_1, param_2', [['login', 'password'], [1, 2]])
 class TestFeature:
     """
@@ -30,14 +32,17 @@ class TestFeature:
     'Тестируем фичу 2 с параметрами 1 и 2'
     """
 
+    # тут параметризация лишняя, можно сделать, как в тесте "test_feature_2"
     @pytest.mark.parametrize('param_3', [1])
     def test_feature_1(self, param_1, param_2, param_3):
         print(f'Тестируем фичу {param_3} с параметрами {param_1} и {param_2}')
 
+    # Тут все хорошо
     def test_feature_2(self, param_1, param_2):
         print(f'Тестируем фичу 2 с параметрами {param_1} и {param_2}')
 
 
+# Тут все хорошо
 @pytest.mark.parametrize('param_1', [1, 2, 3])
 @pytest.mark.parametrize('param_2', [3, 2, 1])
 def test_multiple_markers(param_1, param_2):
