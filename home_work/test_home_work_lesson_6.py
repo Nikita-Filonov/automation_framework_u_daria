@@ -24,26 +24,46 @@ import pytest
 
 @pytest.fixture(scope='function')
 def function():
-    ...
+    print('Hello from, function fixture')
+    yield
+    print('teardown1')
+
+@pytest.fixture(scope='class')
+def _class():
+    print('Hello from, class fixture')
+    yield
+    print('teardown2')
+
+@pytest.fixture(scope='module')
+def module():
+    print('Hello from, module fixture')
+    yield
+    print('teardown3')
+
+@pytest.fixture(scope='session')
+def session():
+    print('Hello from, session fixture')
+    yield
+    print('teardown4')
 
 
 class TestFixtures:
-    def test_feature_1(self, function):
-        pass
+    def test_feature_1(self, function, _class):
+        print(111)
 
-    def test_feature_2(self):
-        pass
+    def test_feature_2(self, function, module):
+        print(222)
 
-    def test_feature_3(self):
-        pass
+    def test_feature_3(self, function, session):
+        print(333)
 
 
 class TestFixtures2:
-    def test_feature_4(self):
-        pass
+    def test_feature_4(self, function, _class):
+        print(444)
 
-    def test_feature_5(self):
-        pass
+    def test_feature_5(self, function):
+        print(555)
 
-    def test_feature_6(self):
-        pass
+    def test_feature_6(self, function):
+        print(666)

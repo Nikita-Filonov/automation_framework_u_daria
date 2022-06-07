@@ -11,3 +11,4 @@ def pytest_sessionstart():
 
 def pytest_sessionfinish():
     print('Clearing the database')
+

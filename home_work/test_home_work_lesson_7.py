@@ -22,22 +22,23 @@
 import pytest
 
 
-# Относится к заданию 1-3
-@pytest.fixture(scope='function')
-def course():
-    print('Creating the course')
-    # Тут необходимо выбрать между return/yield, также нужно будет объяснить почему
-    print('Deleting the course')
-
-
 class TestLesson:
     def test_course_creation(self, course):
+        print('Publishing the course')
+
+    def test_1(self):
+        pass
+
+    def test_2(self):
+        pass
+
+    def test_3(self):
         pass
 
 
 # Относится к заданию 4
 class TestMultiplyParam:
-    @pytest.mark.parametrize('number', [...])  # Тут необходимо добавть несколько чисел
-    def test_multiply_param(self, ):  # Тут будет передаваться твоя фикстура
-        ...
+    @pytest.mark.parametrize('number', [2, 3, 4], indirect=['number'])  # Тут необходимо добавть несколько чисел
+    def test_multiply_param(self, number):  # Тут будет передаваться твоя фикстура
+        print(number)
         # Тут ожидается число ``number`` умноженное на 2
