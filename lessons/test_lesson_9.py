@@ -15,6 +15,7 @@ from random import choice
 
 class TestUnstable:
     @pytest.mark.unstable
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    @pytest.mark.flaky(reruns=3, reruns_delay=4)
     def test_unstable(self):
-        assert choice([False, 100, 200, 0])
+        print('Hello')
+        assert choice([False, 100, 200, 0])==8

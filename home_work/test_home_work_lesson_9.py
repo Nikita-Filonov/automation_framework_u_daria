@@ -5,9 +5,9 @@
 
 2. Необходимо запустить тесты ниже используя несколько видов команд
 
-   1. pytest -m "threading_1 or threading_2"
-   2. pytest -m "threading_1 or threading_2" -n 2 --dist load
-   3. pytest -m "threading_1 or threading_2" -n 2 --dist loadscope
+   1. pytest -m "threading_1 or threading_2" 20.97s
+   2. pytest -m "threading_1 or threading_2" -n 2 --dist load 14.41s
+   3. pytest -m "threading_1 or threading_2" -n 2 --dist loadscope  16.73s
 
    При этом после каждого запуска необходимо записать время выполнения тестов.
    Например: 
@@ -15,6 +15,9 @@
 
    После запуска всех команд и получения результатов, необходимо ответить на вопрос.
    Тесты какой из команд будут выполнены быстрее всего и почему?
+   Ответ: быстрее прогнались тесты с --dist load, потому что каждый освободившийся воркер мог брать любой
+   свободный тест (вопрос: может ли он брать тесты из другого класса, если
+   есть еще тесты из первого класса свободные?)
 """
 import random
 from time import sleep
@@ -23,8 +26,9 @@ import pytest
 
 
 # задание 1
+@pytest.mark.flaky(reruns=5, reruns_delay=1)
 def test_some_unstable_feature():
-    assert random.choice([True, False, '', 0])
+    assert random.choice([True, False, '', 0]) == 0
 
 # задание 2
 @pytest.mark.threading_1
