@@ -21,9 +21,9 @@ send_file_url = 'http://46.101.117.86/api/v1/courses/send-file/'
 
 with open('hello.json', 'r') as file:
    response = requests.post(send_file_url, headers=headers, files={'file': file})
-   print(response.status_code)
-   print(response.json())
-   print(response.request.headers)
+   #print(response.status_code)
+   #print(response.json())
+   #print(response.request.headers)
 
 
 our_file = open('hello.json', 'w')

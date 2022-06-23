@@ -32,5 +32,5 @@ query_params = {
 }
 
 response_get = requests.get(url + '/lessons/', params=query_params)
-print(response_get.status_code)
-print(response_get.request.url)
+# print(response_get.status_code)
+# print(response_get.request.url)
