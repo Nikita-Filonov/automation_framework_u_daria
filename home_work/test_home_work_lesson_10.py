@@ -20,3 +20,37 @@
 
 Результатом выполнения задания должен быть token пользователя и код для отправки запросов
 """
+
+import requests
+
+
+url = 'http://46.101.117.86/api/v1'
+
+
+body = {
+    "email": "onenautm@yandex.ru",
+    "username": "DariaP",
+    "password": "string"
+}
+
+create_user = requests.post(url + '/user/', json=body)
+
+
+body_1 = {
+    "email": "onenautm@yandex.ru",
+    "code": "3w2hhaMQtAiBs"
+}
+
+confirm_email = requests.post(url + '/user/send-confirm-email/', json=body_1)
+
+
+body_2 = {
+    "email": "onenautm@yandex.ru",
+    "password": "string"
+}
+
+get_token = requests.post(url + '/token/', json=body_2)
+
+print(get_token.text)
+
+# последний запрос возвращает ошибку сервера 500 Internal Server Error
