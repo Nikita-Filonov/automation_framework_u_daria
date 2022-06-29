@@ -9,4 +9,6 @@ Schema:
   - Генерация json schema на основе модели
   - Валидация json schema с помощью библиотеки jsonschema
   - Углубление в модуль typing в python
+
+https://json-schema.org/implementations.html  
 """
