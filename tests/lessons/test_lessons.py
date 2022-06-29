@@ -1,7 +1,8 @@
 from http import HTTPStatus
-
+from jsonschema import validate
 import pytest
 from base.api.lessons import create_lesson, get_lesson, get_lessons
+from models.lessons_schema import MyLesson
 
 
 @pytest.mark.lessons
@@ -13,6 +14,7 @@ class TestLessons:
 
     
     def test_create_lesson(self):
+        schema = MyLesson.manager.to_schema
         body = {
           "title": "some-random-string"
         }
@@ -24,6 +26,8 @@ class TestLessons:
         assert get_lesson_response.status_code == HTTPStatus.OK
         assert create_lesson_response.status_code == HTTPStatus.OK
         assert create_lesson_json_response['title'] == body['title']
+
+        validate(instance=create_lesson_json_response, schema=schema)
 
     
     @pytest.mark.parametrize(

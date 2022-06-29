@@ -1,0 +1,11 @@
+{
+  "title": "Lesson",
+  "type": "object",
+  "properties": {
+    "title": { "maxLength": 100, "type": "string" },
+    "content": { "type": "string" },
+    "editorContent": { "type": "string" },
+    "id": { "type": "number" }
+  },
+  "required": ["title", "content", "editorContent", "id"]
+}

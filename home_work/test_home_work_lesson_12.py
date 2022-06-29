@@ -95,5 +95,15 @@ update_course_1_json = update_course_1.json()
 print(f'Выводим рандомные значения третьей модели в JSON (pydantic) {update_course_1_json}')
 
 
+# Better way
+class CreateCourseFix(Course):
+   title = Field(category=str, json='title', max_length=200, default=random_string)
+   image = Field(category=str, json='image', max_length=100, default=random_string)
+   description = Field(category=str, json='description', max_length=100, default=random_string)
 
+class UpdateCourseFix(CreateCourseFix):
+   content = Field(category=str, json='content', max_length=200, default=random_string)
+   editorContent = Field(category=str, json='editorContent', default=random_string)
 
+class CourseFix(UpdateCourseFix):
+   id = Field(category=int, json='id', default=random_number)
