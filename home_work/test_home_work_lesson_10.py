@@ -28,24 +28,24 @@ url = 'http://46.101.117.86/api/v1'
 
 
 body = {
-    "email": "onenautm@yandex.ru",
-    "username": "DariaP",
+    "email": "daria.pishchulinana@gmail.com",
+    "username": "DariaPishchulina",
     "password": "string"
 }
 
 create_user = requests.post(url + '/user/', json=body)
-
+print(create_user.text)
 
 body_1 = {
-    "email": "onenautm@yandex.ru",
-    "code": "3w2hhaMQtAiBs"
+    "email": "daria.pishchulinana@gmail.com",
+    "code": "llPWF1XoIsQ"
 }
 
-confirm_email = requests.post(url + '/user/send-confirm-email/', json=body_1)
-
+confirm_email = requests.post(url + '/user/confirm-email/', json=body_1)
+print(confirm_email.text)
 
 body_2 = {
-    "email": "onenautm@yandex.ru",
+    "email": "daria.pishchulinana@gmail.com",
     "password": "string"
 }
 
@@ -53,4 +53,4 @@ get_token = requests.post(url + '/token/', json=body_2)
 
 print(get_token.text)
 
-# последний запрос возвращает ошибку сервера 500 Internal Server Error
+#"token":"500356b93224309d1345a5c01292bddd618e199c"

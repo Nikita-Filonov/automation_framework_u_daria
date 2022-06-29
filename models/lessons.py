@@ -33,9 +33,9 @@ class Lesson:
     editorContent: str
 
 lesson = Lesson(id=5, title='sddfds', content='saddsf', editorContent='adsfd')
-lesson
-lesson.id
-lesson.title
+# print(lesson)
+# print(lesson.id)
+# print(lesson.title)
 
 
 def create_lesson(data: Lesson):
@@ -52,24 +52,26 @@ class ModelsManagerLesson(CreateModelsManagerLesson):
     id = Field(category=int, json='id', default=random_number)
 
 lesson = ModelsManagerLesson(id=5, title='sddfds', content='saddsf', editorContent='adsfd')
-lesson
-lesson.id.value
-lesson.title.value
+# print(lesson)
+# print(lesson.id.value)
+# print(lesson.title.value)
 
-def create_lesson_1(data: ModelsManagerLesson):
-    data.id
-    data.title
-    data.editor_content
+# def create_lesson_1(data: ModelsManagerLesson):
+#     print(data.id)
+#     print(data.title)
+#     print(data.editor_content)
+#
+# print(create_lesson_1(ModelsManagerLesson))
 
 
-lesson.manager.to_dict(json_key=True), type(lesson.manager.to_dict())
-lesson.manager.to_dump(), type(lesson.manager.to_dump())
-lesson.manager.to_dict_with_negative_max_length(fields=[ModelsManagerLesson.title])
-lesson.manager.to_dict_with_empty_string_fields(fields=[ModelsManagerLesson.title, ModelsManagerLesson.id])
+# print(lesson.manager.to_dict(json_key=True), type(lesson.manager.to_dict()))
+# print(lesson.manager.to_dump(), type(lesson.manager.to_dump()))
+# print(lesson.manager.to_dict_with_negative_max_length(fields=[ModelsManagerLesson.title]))
+# print(lesson.manager.to_dict_with_empty_string_fields(fields=[ModelsManagerLesson.title, ModelsManagerLesson.id]))
 
 lesson.manager.to_schema
 
-ModelsManagerLesson.manager.to_dict()
+# print(ModelsManagerLesson.manager.to_dict())
 
 # pydantic
 class PydanticLesson(BaseModel):

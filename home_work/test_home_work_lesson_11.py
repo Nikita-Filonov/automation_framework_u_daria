@@ -4,3 +4,8 @@
 
 Автотесты необходимо добавлять в папку tests в соответвующие файлы, группируя по фичам
 """
+
+
+from http import HTTPStatus
+
+import pytest
