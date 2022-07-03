@@ -1,0 +1,10 @@
+{
+  "title": "Course",
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "title": { "type": "string" },
+    "status": { "enum": ["active", "disabled", "pending"], "type": "string" }
+  },
+  "required": ["id", "title", "status"]
+}

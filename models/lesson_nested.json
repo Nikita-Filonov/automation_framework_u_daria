@@ -1,0 +1,25 @@
+{
+  "title": "MyLesson",
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "title": { "maxLength": 150, "type": "string" },
+    "content": { "minLength": 1, "type": "string" },
+    "editorContent": { "type": "string" },
+    "courses": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "title": "Course",
+            "type": "object",
+            "properties": { "id": { "type": "number" }, "title": { "maxLength": 150, "type": "string" } },
+            "required": ["title"]
+          },
+          { "type": "null" }
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": ["title", "content", "editorContent", "courses"]
+}

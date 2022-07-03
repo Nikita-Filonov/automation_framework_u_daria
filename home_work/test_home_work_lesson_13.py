@@ -51,6 +51,8 @@ users_schema = {
     }
 }
 
+user_to_schema = User.manager.to_array_schema
+
 # ----- Nested "project" object -----
 project = {
     'id': 1,
@@ -80,7 +82,7 @@ project_schema = {
 class Project(Model):  # тут модель
     id = Field(category=int, json='id', default=random_number)
     title = Field(category=str, json='title', default=random_string)
-    creator = Field(category=str, json='creator', default=user, related_to=User)
+    creator = Field(category=User, json='creator', default=user)
 # в документации указан параметр related_to, но в классе Field он не прописан
 
 

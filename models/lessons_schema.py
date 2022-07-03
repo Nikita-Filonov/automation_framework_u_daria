@@ -1,4 +1,4 @@
-from typing import Dict, Union, Optional, List
+from typing import Dict, Union, Optional, List, Literal, Tuple
 from jsonschema import validate
 from models_manager import Model, Field
 from models_manager.utils import random_string, random_number
@@ -7,7 +7,8 @@ json = {
   "title": "string",
   "id": 0,
   "content": "string",
-  "editorContent": "string"
+  "editorContent": "string",
+  "editorContent2": "string"
 }
 
 schema = {
@@ -21,8 +22,9 @@ schema = {
       "editorContent": { "type": "string" },
       "id": { "type": "number" }
     },
-    "required": ["title", "content", "editorContent", "id"]
-  }
+    "required": ["title", "content", "editorContent", "id"],
+    "additionalProperties": False
+  },
 }
 
 validate(instance=[json], schema=schema)
@@ -57,6 +59,13 @@ Dict[str, Optional[int]] # Union[int, None]
 
 array_json = [json_int] # list
 List[Dict[str, int]]
+
+status: Literal["active", "disabled", "pending"] = "active" or "disabled" or "pending"
+Literal["active", "disabled", "pending"]
+
+
+tuple_json = (1, 'some', True)
+Tuple[int, str, bool]
 
 
 class SomeLesson(Model):
