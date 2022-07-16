@@ -18,4 +18,4 @@ class TestUnstable:
     @pytest.mark.flaky(reruns=3, reruns_delay=4)
     def test_unstable(self):
         print('Hello')
-        assert choice([False, 100, 200, 0])==8
+        assert choice([False, 100, 8])==8

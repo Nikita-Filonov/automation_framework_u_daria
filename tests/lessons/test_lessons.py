@@ -12,7 +12,6 @@ class TestLessons:
 
         assert response.status_code == HTTPStatus.OK
 
-    
     def test_create_lesson(self):
         schema = MyLesson.manager.to_schema
         body = {
