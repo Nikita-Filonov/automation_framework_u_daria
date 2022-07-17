@@ -56,14 +56,14 @@ class TestCourses:
         deleted_course_response = delete_course(course_function['id'])
 
         assert deleted_course_response.status_code == HTTPStatus.NO_CONTENT
-
+    
     def test_courses_token_required(self):
         body = {
             "email": "daria.pishchulinana@gmail.com"
         }
         courses_token_response = courses_token_required(body)
         courses_token_response_json = courses_token_response.json()
-        print(courses_token_response.text)
+        print(courses_token_response.text) # print можно убрать
         assert courses_token_response.status_code == HTTPStatus.OK
         assert courses_token_response_json['success'] == 'yes'
 
@@ -73,4 +73,4 @@ class TestCourses:
 
         assert send_file_response.status_code == HTTPStatus.OK
         assert send_file_response_json['filename'] == 'hello.txt'
-        assert isinstance(send_file_response_json['filename'], str)
+        assert isinstance(send_file_response_json['filename'], str) # лучше порверять через json schema

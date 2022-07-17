@@ -27,7 +27,7 @@ schema = {
   },
 }
 
-validate(instance=[json], schema=schema)
+# validate(instance=[json], schema=schema)
 
 class MyLesson(Model):
     id = Field(category=int, json='id', default=random_number, optional=True)

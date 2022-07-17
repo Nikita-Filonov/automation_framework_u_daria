@@ -38,4 +38,4 @@ def courses_token_required(body: dict):
 def courses_send_file():
     with open('hello.txt', 'r') as file:
         response = requests.post(f'{API_URL}/courses/send-file', headers=headers, files={'file': file})
-        return response
+        return response # redundant переменная
