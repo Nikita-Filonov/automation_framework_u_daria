@@ -30,6 +30,7 @@ from allure_commons.types import LinkType
 def create_user():
     pass
 
+
 @pytest.mark.allure
 @pytest.mark.allure_some
 @allure.severity(allure.severity_level.MINOR)
