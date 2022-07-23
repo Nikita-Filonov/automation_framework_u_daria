@@ -1,0 +1,48 @@
+stages:
+  - testing
+  - reports
+  - deploy
+
+docker_job:
+  stage: testing
+  tags:
+    - docker
+  image: python:3.8-alpine
+  before_script:
+    - pip install -r requirements.txt
+  script:
+    - pytest --alluredir=./allure-results
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - ./allure-results
+    expire_in: 30 days
+
+allure_job:
+  stage: reports
+  tags:
+    - docker
+  image: frankescobar/allure-docker-service
+  script:
+    - allure generate -c ./allure-results -o ./allure-reports
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - ./allure-results
+      - ./allure-reports
+    expire_in: 30 days
+  rules:
+    - when: always
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - mv ./allure-reports/* public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - when: always
