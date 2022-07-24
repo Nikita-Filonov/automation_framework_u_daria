@@ -12,7 +12,7 @@ docker_job:
     - pip install -r requirements.txt
   script:
     - pytest --alluredir=./allure-results
-  allow_failure: true
+  allow_failure: false
   artifacts:
     when: always
     paths:
